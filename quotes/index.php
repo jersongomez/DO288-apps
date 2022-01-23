@@ -1,9 +1,9 @@
 <?php
     print "This app returns a random funny quote.\n";
-        if(isset($HELLO_AUD) && $HELLO_AUD != null) {
-            print "$HELLO_AUD Ingeniero.\n";
+        if(isset($_ENV["HELLO_AUD"]) && $_ENV["HELLO_AUD"] != null) {
+            print "{$_ENV["HELLO_AUD"]} Ingeniero.\n";
         } else {
-            print "Hola Ingenieros.\n";
+            print "Hola Ingenieros. {$_ENV["HELLO_AUD"]} \n";
         }
         
 ?>
