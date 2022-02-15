@@ -4,6 +4,7 @@ MAINTAINER Red Hat Training <training@redhat.com>
 
 # DocumentRoot for Apache
 ENV DOCROOT=/var/www/html 
+LABEL io.openshift.expose-services="8080:http"
 
 LABEL io.k8s.description="A basic Apache HTTP Server child image, uses ONBUILD" \
       io.k8s.display-name="Apache HTTP Server" \
@@ -25,7 +26,7 @@ RUN chgrp -R 0 /var/log/httpd /var/run/httpd && chmod -R g=u /var/log/httpd /var
 RUN rm -rf /run/httpd && mkdir /run/httpd
 
 # Run as the root user
-USER root
+USER 1001
 
 # Launch httpd
 CMD /usr/sbin/httpd -DFOREGROUND
