@@ -5,6 +5,10 @@ MAINTAINER Red Hat Training <training@redhat.com>
 # DocumentRoot for Apache
 ENV DOCROOT=/var/www/html 
 
+LABEL io.k8s.description="A basic Apache HTTP Server child image, uses ONBUILD" \
+      io.k8s.display-name="Apache HTTP Server" \
+      io.openshift.expose-services="8080:http" \
+      io.openshift.tags="apache, httpd"
 
 RUN   yum install -y --nodocs --disableplugin=subscription-manager httpd && \
       yum clean all --disableplugin=subscription-manager -y && \
@@ -21,7 +25,7 @@ RUN chgrp -R 0 /var/log/httpd /var/run/httpd && chmod -R g=u /var/log/httpd /var
 RUN rm -rf /run/httpd && mkdir /run/httpd
 
 # Run as the root user
-USER 1001
+USER root
 
 # Launch httpd
 CMD /usr/sbin/httpd -DFOREGROUND
