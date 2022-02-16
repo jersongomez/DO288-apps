@@ -10,7 +10,8 @@ config_s2i
 
 ######## CUSTOMIZATION STARTS HERE ############
 cp -Rf /tmp/src/*.html ./
-echo `date` > info.html
+DATE = `date`
+echo "$DATE" > info.html
 
 ######## CUSTOMIZATION ENDS HERE ############
 
