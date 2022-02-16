@@ -15,8 +15,8 @@ RUN mkdir -p /var/www/html
 
 RUN echo "Hello" > /var/www/html/index.html
 
-ADD scripts /scripts
-RUN chmod 755 /scripts/*
-
 EXPOSE 80
-CMD ["/bin/bash", "/scripts/run-apache.sh" ]
+
+RUN rm -rf /run/httpd && mkdir /run/httpd
+
+CMD /usr/sbin/httpd -DFOREGROUND
