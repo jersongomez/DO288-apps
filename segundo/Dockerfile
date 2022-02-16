@@ -13,7 +13,7 @@ RUN yum -y update && yum -y install httpd && yum clean all
 
 RUN mkdir -p /var/www/html
 
-RUN echo "Hello" >> /var/www/html/index.html
+RUN echo "Hello" > /var/www/html/index.html
 
 ADD scripts /scripts
 RUN chmod 755 /scripts/*
