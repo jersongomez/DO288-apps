@@ -9,7 +9,7 @@ echo "---> Enabling s2i support in httpd24 image"
 config_s2i
 
 ######## CUSTOMIZATION STARTS HERE ############
-cp -Rf /tmp/scr/*.html ./
+cp -Rf /tmp/src/*.html ./
 echo ´ate´ > info.html
 
 ######## CUSTOMIZATION ENDS HERE ############
