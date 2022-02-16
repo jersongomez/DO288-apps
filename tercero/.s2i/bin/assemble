@@ -10,7 +10,7 @@ config_s2i
 
 ######## CUSTOMIZATION STARTS HERE ############
 cp -Rf /tmp/src/*.html ./
-echo ´ate´ > info.html
+echo `jerson date` > info.html
 
 ######## CUSTOMIZATION ENDS HERE ############
 
