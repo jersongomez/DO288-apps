@@ -15,6 +15,8 @@ RUN mkdir -p /var/www/html
 
 RUN echo "Hello" > /var/www/html/index.html
 
+RUN rm -rf /run/httpd && mkdir /run/httpd
+
 EXPOSE 8080
 
 RUN sed -i "s/Listen 80/Listen 8080/g" /etc/httpd/conf/httpd.conf 
@@ -23,7 +25,5 @@ RUN sed -i "s/#ServerName www.example.com:80/ServerName 0.0.0.0:8080/g" /etc/htt
 RUN chgrp -R 0 /var/log/httpd /var/run/httpd && chmod -R g=u /var/log/httpd /var/run/httpd
 
 USER 1001
-
-RUN rm -rf /run/httpd && mkdir /run/httpd
 
 CMD /usr/sbin/httpd -DFOREGROUND
